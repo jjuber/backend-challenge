@@ -48,18 +48,18 @@ describe('Back-End Challenge', function() {
           done();
       });
     });
-    it('Should pass the test if all posts are unique by checking unique ids', function(done) {
+    it('Should pass the test if all posts are unique by checking unique ID', function(done) {
       axios.get('http://localhost:2222/api/posts/tech,history')
       .then(res => {
         let post = res.data;
         let postID = [];
         let postObj = {};
         let test = true;
-        // Gets all post ids
+        // Gets all post IDs
         for (let i = 0; i < post.length; i++) {
           postID.push(post[i].id)
         }
-        // Places ids in an object where the value of the key is the number of times it appears
+        // Places IDs in an object where the value of the key is the number of times it appears
         postID.forEach(blog => {
           postObj[blog] = postObj[blog] ? postObj[blog] + 1 : 1
         })
@@ -76,18 +76,18 @@ describe('Back-End Challenge', function() {
         })
         done();
     });
-    it('Should pass the test if all posts are unique by checking unique ids using all route parameters', function(done) {
+    it('Should pass the test if all posts are unique by checking unique IDs using all route parameters', function(done) {
       axios.get('http://localhost:2222/api/posts/tech,history/likes/asc')
       .then(res => {
         let post = res.data;
         let postID = [];
         let postObj = {};
         let test = true;
-        // Gets all post ids
+        // Gets all post IDs
         for (let i = 0; i < post.length; i++) {
           postID.push(post[i].id)
         }
-        // Places ids in an object where the value of the key is the number of times it appears
+        // Places IDs in an object where the value of the key is the number of times it appears
         postID.forEach(blog => {
           postObj[blog] = postObj[blog] ? postObj[blog] + 1 : 1
         })
@@ -110,11 +110,11 @@ describe('Back-End Challenge', function() {
         let post = res.data;
         let postLikes = [];
         let test = true;
-        // Gets all post likes
+        // Gets post likes
         for (let i = 0; i < post.length; i++) {
           postLikes.push(post[i].likes)
         }
-        // Loops the likes and if i < i + 1, the test will fail
+        // Loops likes and if i < i + 1, the test will fail
         for (let i = 0; i < postLikes.length; i++) {
           if (postLikes[i] < postLikes[i + 1]) {
             test = false;
@@ -133,11 +133,11 @@ describe('Back-End Challenge', function() {
         let post = res.data;
         let postID = [];
         let test = true;
-        // Gets all post id's because that is the default value to sort by
+        // Gets all post IDs because that is the default value to sort by
         for (let i = 0; i < post.length; i++) {
           postID.push(post[i].id)
         }
-        // Loops the ids and if i > i + 1, the test will fail because the default is ascending order
+        // Loops the IDs and if i > i + 1, the test will fail because the default is ascending order
         for (let i = 0; i < postID.length; i++) {
           if (postID[i] > postID[i + 1]) {
             test = false;
